@@ -1,5 +1,5 @@
 import { TouchableOpacity } from 'react-native'
-import styled from "styled-components/native";
+import styled, { css } from "styled-components/native";
 
 export type ButtonTypeStyleProps = 'SUCCESS' | 'DANGER';
 
@@ -17,12 +17,14 @@ export const Container = styled(TouchableOpacity) <Props>`
     align-items: center;
 
     background-color: ${({ theme, type }) => type === 'SUCCESS' ? theme.COLORS.GREEN_700 : theme.COLORS.RED_DARK};
-    
     border-radius: 6px;
 `;
 
 export const Title = styled.Text`
-    font-size: ${({ theme }) => theme.FONT_SIZE.MD}px;
-    color: ${({ theme }) => theme.COLORS.WHITE};
-    font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
+    ${({ theme }) => css`
+        color: ${theme.COLORS.WHITE};
+        font-family: ${theme.FONT_FAMILY.BOLD};
+        font-size: ${theme.FONT_SIZE.MD}px;
+    ` }
+    
 `;
